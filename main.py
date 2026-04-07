@@ -54,7 +54,10 @@ async def main():
     'DATASET_READ_SAMPLE':wrapper(datasets.read_num_of_rows,"DATASET_READ_COMPLETED_SAMPLE"),
     'DATASET_BUILD_PIPELINE':wrapper(datasets.build_pipeline,"DATASET_BUILT_PIPELINE"),
     'DATASET_TRANSFORM_DATA':wrapper(datasets.transform_data,"DATASET_TRANSFORMED_DATA"),
-    "MODEL_BUILD_NEW_MODEL":wrapper(models.build_model,events.MODEL_BUILT_FINISHED)
+    "MODEL_BUILD_NEW_MODEL":wrapper(models.build_model,events.MODEL_BUILT_FINISHED),
+    'EXPERIMENT_SAVE': wrapper(models.save_experiment, "EXPERIMENT_SAVED"),
+    'EXPERIMENT_FIT': wrapper(models.fit_model, "EXPERIMENT_FITTED"),
+    'EXPERIMENT_EVALUATE': wrapper(models.evaluate_model, "EXPERIMENT_EVALUATED"),
 }
 
     socket = websocket.websocket
